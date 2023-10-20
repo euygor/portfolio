@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfólio ~ Ygor Oliveira</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <meta name="author" content="Ygor Oliveira">
+        <meta name="description" content="Ygor Oliveira ~ Desenvolvedor FullStack">
+    </head>
+    <body>
+        <div class="terminal">
+            <div class="title-bar">
+                <div class="buttons">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+                <span class="title"></span>
+            </div>
+            <pre id="output"></pre>
+            <input type="text" id="input" placeholder="Digite um comando..." />
+        </div>
+        <script src="./script.js"></script>
+        <script>
+            function typeText(element, text, delay) {
+                let index = 0;
+                let output = "";
+                let insideTag = false;
+
+                function addCharacter() {
+                    if (index < text.length) {
+                        output += text.charAt(index);
+                        if (text.charAt(index) === "<") {
+                            insideTag = true;
+                        } else if (text.charAt(index) === ">") {
+                            insideTag = false;
+                        }
+
+                        if (!insideTag) {
+                            element.innerHTML = output;
+                        }
+                        
+                        index++;
+                        setTimeout(addCharacter, delay);
+                    }
+                }
+
+                addCharacter();
+            }
+
+            const titleElement = document.querySelector('.title');
+            
+            const textToType = "<span style='color: transparent;'> &nbsp; </span>Portfólio ~ Ygor Oliveira <br> <span style='color: transparent;'> &nbsp;&nbsp; </span>Desenvolvedor FullStack";
+
+            const typingDelay = 25;
+
+            typeText(titleElement, textToType, typingDelay);
+        </script>
+    </body>
+</html>
