@@ -17,19 +17,21 @@ const commands = [
         - HTML5
         - CSS3
         - JavaScript
-        - Node
-        - Vue
+        - Livewire
         - React
-        - React Native
-        - TypeScript
+        - Vue
         - PHP
         - Laravel
-        - MySQL
+        - Node.js
         - Python
-        - Java
+        - React Native
+        - Expo
+        - MySQL
+        - Oracle
         - Git
         - GitHub
     ` },
+    { name: 'comandos', description: '' },
     { name: 'limpar', description: '' },
 ];
 
@@ -47,20 +49,31 @@ function clearTerminal() {
 
 function executeCommand(commandName) {
     const lowerCaseCommand = commandName.toLowerCase();
+
     if (lowerCaseCommand === 'limpar') {
         clearTerminal();
-    } else {
-        const selectedCommand = commands.find(command => command.name === lowerCaseCommand);
+        return;
+    }
 
-        if (selectedCommand) {
-            output.innerHTML += `\n$ ${selectedCommand.name}\n${selectedCommand.description}\n`;
-        } else {
-            output.innerHTML += `\nComando não encontrado: ${commandName}\n`;
-        }
+    if (lowerCaseCommand === 'comandos') {
+        output.innerHTML += `\n$ comandos\n`;
+        commands.forEach(command => {
+            output.innerHTML += `${command.name}\n`;
+        });
+        return;
+    }
+
+    const selectedCommand = commands.find(command => command.name === lowerCaseCommand);
+
+    if (selectedCommand) {
+        output.innerHTML += `\n$ ${selectedCommand.name}\n${selectedCommand.description}\n`;
+    } else {
+        output.innerHTML += `\nComando não encontrado: ${commandName}\n`;
     }
 
     input.focus();
 }
+
 
 document.addEventListener('click', () => {
     input.focus();
