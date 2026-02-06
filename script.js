@@ -9,7 +9,7 @@ const commands = [
         - <a href="https://wa.me/5587991047609?text=Olá Ygor, Desejo fazer um orçamento." target="_blank">WhatsApp</a>
         - <a href="https://www.linkedin.com/in/euygor" target="_blank">LinkedIn</a>
     ` },
-    { name: 'curriculo', description: 'Confira e faça o download do meu <a href="./Currículo Ygor Oliveira.pdf" target="_blank">Currículo</a>.' },
+    { name: 'curriculo', description: 'Confira e faça o download do meu <a href="./Curriculo_Ygor_Oliveira.pdf" target="_blank">Currículo</a>.' },
     { name: 'projetos', description: 'Confira meus projetos no <a href="https://github.com/euygor" target="_blank">GitHub</a>.' },
     { name: 'servicos', description: 'Desenvolvimento de websites, sistemas e aplicativos, bem como a realização de manutenções, análises e muito mais.' },
     {
